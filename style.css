@@ -1,0 +1,56 @@
+@keyframes rodando {
+    0%, 100% {transform: rotate(0deg);}
+    50% { transform: rotate(5deg);}
+}
+    
+    body {
+    background-image: url(imagens/fundo.png);
+    background-repeat: no-repeat;
+    color: rgb(24, 175, 62  );
+    font-size: 15pt;
+    text-align: center;
+}
+
+#conteudo {
+    display: flex;
+    background-color: rgb(30, 182, 30, 0.747);
+    border-radius: 8px;
+    box-shadow: 5px 3px 10px;
+    margin-left: 350px;
+    width: 400px;
+    padding: 50px 150px 50px 150px;
+}
+
+#index #gnomo {
+    width: 270px;
+    height: 370px;
+    animation: rodando 2s infinite;
+}
+
+.cabecalho {
+    color: white;
+}
+
+#botoes {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    gap: 20px;
+}
+
+#botoes label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    margin-left: 5px;
+    gap: 5px;
+}
+
+#botoes input[type = 'radio']{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    margin-left: 5px;
+    gap: 5px;
+}
