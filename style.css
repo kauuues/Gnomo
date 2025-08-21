@@ -1,41 +1,50 @@
 @keyframes rodando {
-    0%, 100% {transform: rotate(0deg);}
-    50% { transform: rotate(5deg);}
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
 }
-    
-    body {
+
+body {
     background-image: url(imagens/fundo.png);
     background-repeat: no-repeat;
-    color: rgb(24, 175, 62  );
+    background-size: cover; /* faz a imagem preencher a tela */
+    color: rgb(24, 175, 62);
     font-size: 15pt;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 #conteudo {
     display: flex;
-    background-color: rgb(30, 182, 30, 0.747);
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(30, 182, 30, 0.75);
     border-radius: 8px;
-    box-shadow: 5px 3px 10px;
-    margin-left: 350px;
-    width: 400px;
-    padding: 50px 150px 50px 150px;
+    box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    margin: 20px auto; /* centraliza em qualquer tela */
+    width: 90%;        /* largura flexível */
+    max-width: 600px;  /* limite no desktop */
 }
 
 #index #gnomo {
-    width: 270px;
-    height: 370px;
+    width: 100%;
+    max-width: 270px;
+    height: auto;
     animation: rodando 2s infinite;
 }
 
 .cabecalho {
     color: white;
+    margin: 10px 0;
 }
 
 #botoes {
     display: flex;
     flex-direction: column;
-    margin-left: 5px;
-    gap: 20px;
+    margin-top: 20px;
+    gap: 15px;
+    width: 100%;
 }
 
 #botoes label {
@@ -43,14 +52,66 @@
     flex-direction: row;
     align-items: center;
     color: white;
-    margin-left: 5px;
-    gap: 5px;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-#botoes input[type = 'radio']{
-    width: 30px;
-    height: 30px;
-    display: flex;
-    margin-left: 5px;
-    gap: 5px;
+#botoes label:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#botoes input[type='radio'] {
+    width: 22px;
+    height: 22px;
+}
+
+/* ---------------- MEDIA QUERIES ---------------- */
+
+/* Celulares até 600px */
+@media (max-width: 600px) {
+    body {
+        font-size: 13pt;
+    }
+
+    #conteudo {
+        padding: 20px;
+    }
+
+    #botoes {
+        flex-direction: column; /* botões empilhados */
+    }
+}
+
+/* Tablets (601px até 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        font-size: 14pt;
+    }
+
+    #conteudo {
+        flex-direction: column;
+        max-width: 500px;
+    }
+}
+
+/* Desktop acima de 1025px */
+@media (min-width: 1025px) {
+    body {
+        font-size: 16pt;
+    }
+
+    #conteudo {
+        flex-direction: row; /* gnomo + botões lado a lado */
+        justify-content: center;
+        align-items: center;
+    }
+
+    #botoes {
+        margin-left: 20px;
+        flex-direction: column;
+    }
 }
